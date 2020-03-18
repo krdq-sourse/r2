@@ -16,6 +16,35 @@ class MyController extends Controller
     {
         $this->layout= 'first';
         $model = new Login();
+        $her =Yii::$app->request->post();
+        $e=''; $p='';
+
+
+        foreach ($her as $key => $value) {
+            if($key=='Login') {
+                foreach ($value as $key2 => $value2)
+                    if ($key2 == 'email') {
+                        $e = $value2;
+                    }
+                if ($key2 == 'pass') {
+                    $p = $value2;
+                }
+            } }
+        if ($model->load($her)) {
+            $cats = Regg::find()->all();
+            foreach ($cats as $cat) {
+                if ($cat->email === $e&&$cat->pass===$p) {
+//                    Yii::$app->session->setFlash('already','Вы уже зарегистрированы');
+                    $b=true;
+                    return $this->render('test', compact('b')); // todo предать масив данных о пользователе или его индекс (лучше индекс но мб заебусь)
+                }
+            }
+            if ($model->save(false)) {
+//                Yii::$app->session->setFlash('nice','Все найс теперь авторизируйтесь');
+                    return $this->refresh();
+
+            }
+        }
         return $this->render('index',compact('model'));
     }
 

@@ -5,13 +5,14 @@ namespace app\models;
 
 
 use yii\base\Model;
+use yii\db\ActiveRecord;
 
-class Login extends Model
+class Login extends ActiveRecord
 {
-    public $pass;
-    public $email;
-    public $text;
-
+    public static function tableName()
+    {
+        return 'public.users';
+    }
     public function attributeLabels()
     {
         return [
