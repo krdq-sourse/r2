@@ -90,23 +90,7 @@ $s=$value2;
                return $this->refresh();
             }
         }
-////        }
-//            if ($model->save(false)) {
-//                return $this->refresh();
-//            }
-//        if ($model->load(Yii::$app->request->post())){
-////            $cats = Regg::find()->all();
-////            foreach ($cats as $cat) {
-//////                if ($cat->email === Yii::$app->request->post()) {
-//////                    return Yii::$app->request->post();
-//////                }
-////            }
-//            $jopa =$model->attributes()->email;
-//            return $jopa;
-//           if( $model->save(false)){
-//               return $this->refresh();
-//           }
-//        }
+
 
             return $this->render('reg', compact('model'));
 
