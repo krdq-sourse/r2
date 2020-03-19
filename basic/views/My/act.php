@@ -24,4 +24,9 @@ imagecopy($output, $background, 0, 0, 20, 13, $width, $height);
 ob_start();
 imagepng($output);
 printf('<img id="output" src="data:image/png;base64,%s" />', base64_encode(ob_get_clean()));
-echo '<div>назад</div>';
+$o=<<<HTML
+<div onclick="location.href='http://plati/basic/web/index.php?r=my%2Fpay'">назад</div>
+HTML;
+
+
+echo $o;
