@@ -1,4 +1,4 @@
-<?php// наше изображение
+<?php // наше изображение
 $img = ImageCreateFromJPEG("https://i.pinimg.com/originals/1e/51/db/1e51dbd045573cc242b5258aef8bfa34.jpg");
 
 // определяем цвет, в RGB

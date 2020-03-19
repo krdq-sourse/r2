@@ -4,7 +4,6 @@
 namespace app\models;
 
 
-
 use yii\db\ActiveRecord;
 
 class Regg extends ActiveRecord
@@ -14,10 +13,10 @@ class Regg extends ActiveRecord
 //    public $address;
 //    public $pass;
 //    public $email;
-public static function tableName()
-{
-    return 'public.users';
-}
+    public static function tableName()
+    {
+        return 'public.users';
+    }
 
 
     public function attributeLabels()
@@ -33,12 +32,12 @@ public static function tableName()
     public function rules()
     {
         return [
-            [['pass', 'email', 'firstname','secondname','address'], 'required', 'message' => 'Поле обязательно к заполнению'],
+            [['pass', 'email', 'firstname', 'secondname', 'address'], 'required', 'message' => 'Поле обязательно к заполнению'],
             ['email', 'email', 'message' => 'Введите адрес электороной почты корректно '],
 //            ['name', 'string', 'min' => 4],
 //            ['name','string','max'=>12,'tooLong'=>'Сильно много букв!']
             ['name', 'string', 'length' => [4, 12], 'tooShort' => 'мало', 'tooLong' => 'много'],
-            ['text','trim'],
+            ['text', 'trim'],
 
         ];
     }

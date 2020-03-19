@@ -1,5 +1,5 @@
 <?php
-$input_text = 'hui '.$_COOKIE['fname'].' '.$_COOKIE['sname'].' '.$_COOKIE['adr'].' '.$num;
+$input_text = 'hui ' . $_COOKIE['fname'] . ' ' . $_COOKIE['sname'] . ' ' . $_COOKIE['adr'] . ' ' . $num;
 
 $width = (strlen($input_text) * 9) + 20;
 $height = 300;
@@ -24,7 +24,7 @@ imagecopy($output, $background, 0, 0, 20, 13, $width, $height);
 ob_start();
 imagepng($output);
 printf('<img id="output" src="data:image/png;base64,%s" />', base64_encode(ob_get_clean()));
-$o=<<<HTML
+$o = <<<HTML
 <div onclick="location.href='http://plati/basic/web/index.php?r=my%2Fpay'">назад</div>
 HTML;
 

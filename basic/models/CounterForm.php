@@ -8,15 +8,17 @@ use yii\base\Model;
 
 class CounterForm extends Model
 {
-     public $num;
-     public $category;
+    public $num;
+    public $category;
+
     public function attributeLabels()
     {
         return [
-            'category'=>'Выберите категорию',
-           'num' => 'Напишите сюда показатели счетчика ',
+            'category' => 'Выберите категорию',
+            'num' => 'Напишите сюда показатели счетчика ',
         ];
     }
+
     public function rules()
     {
         return [
@@ -24,8 +26,8 @@ class CounterForm extends Model
             ['email', 'email', 'message' => 'Введите адрес электороной почты корректно '],
 //            ['name', 'string', 'min' => 4],
 //            ['name','string','max'=>12,'tooLong'=>'Сильно много букв!']
-            ['num', 'string', 'length' => [8,8], 'tooShort' => 'мало', 'tooLong' => 'много'],
-            ['num','trim'],
+            ['num', 'string', 'length' => [8, 8], 'tooShort' => 'мало', 'tooLong' => 'много'],
+            ['num', 'trim'],
 
         ];
     }
