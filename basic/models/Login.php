@@ -30,9 +30,7 @@ class Login extends ActiveRecord
 //            ['name','string','max'=>12,'tooLong'=>'Сильно много букв!']
             ['name', 'string', 'length' => [4, 12], 'tooShort' => 'мало', 'tooLong' => 'много'],
             ['text','trim'],
-
         ];
     }
-
 
 }

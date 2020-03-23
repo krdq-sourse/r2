@@ -1,7 +1,7 @@
 <?php
 
-if($b) {
-    print_r(['ура' => 'работает']);
+if($_COOKIE['bool']) {
+    print_r($p);
 }else {
     echo 'посшел нахуй, незареганый!';
 
