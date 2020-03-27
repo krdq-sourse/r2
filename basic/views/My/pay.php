@@ -1,9 +1,10 @@
+
 <?php use yii\helpers\Html;
 use yii\widgets\ActiveForm; ?>
     <ul class="nav nav-pills">
         <li role="presentation" class="action"><?= Html::a("Главная", ['my/content']) ?></li>
         <li role="presentation" class="active"><?= Html::a("Оплата", ["my/pay"]) ?></li>
-        <li role="presentation" class="action"><?= Html::a("История", "") ?></li>
+        <li role="presentation" class="action"> <?= Html::a("История", ['test/index']) ?> </li>
     </ul>
     <br>
 <?php

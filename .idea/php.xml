@@ -82,6 +82,19 @@
       <path value="$PROJECT_DIR$/basic/vendor/phpunit/php-text-template" />
       <path value="$PROJECT_DIR$/basic/vendor/bower-asset/yii2-pjax" />
       <path value="$PROJECT_DIR$/basic/vendor/phpunit/php-timer" />
+      <path value="$PROJECT_DIR$/basic/vendor/kartik-v/yii2-widget-datepicker" />
+      <path value="$PROJECT_DIR$/basic/vendor/kartik-v/yii2-krajee-base" />
+      <path value="$PROJECT_DIR$/basic/vendor/kartik-v/yii2-widget-datetimepicker" />
+      <path value="$PROJECT_DIR$/basic/vendor/kartik-v/yii2-widget-activeform" />
+      <path value="$PROJECT_DIR$/basic/vendor/kartik-v/yii2-helpers" />
+      <path value="$PROJECT_DIR$/basic/vendor/kartik-v/yii2-field-range" />
+      <path value="$PROJECT_DIR$/basic/vendor/twbs/bootstrap" />
+      <path value="$PROJECT_DIR$/basic/vendor/components/flag-icon-css" />
+      <path value="$PROJECT_DIR$/basic/vendor/bower-asset/jquery-ui" />
+      <path value="$PROJECT_DIR$/basic/vendor/kartik-v/yii2-icons" />
+      <path value="$PROJECT_DIR$/basic/vendor/yiisoft/yii2-jui" />
+      <path value="$PROJECT_DIR$/basic/vendor/2amigos/yii2-date-picker-widget" />
+      <path value="$PROJECT_DIR$/basic/vendor/bower-asset/bootstrap-datepicker" />
     </include_path>
   </component>
 </project>

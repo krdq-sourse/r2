@@ -2,8 +2,9 @@
 
 
 namespace app\controllers;
-
-
+use yii\data\Pagination;
+use DateInterval;
+use DateTime;
 use app\models\Oplata;
 use yii\web\Controller;
 use Yii;
@@ -48,8 +49,8 @@ class MyController extends Controller
                     setcookie('fname', $cat->firstname);
                     setcookie('sname', $cat->secondname);
                     setcookie('adr', $cat->address);
-
-                    return $this->render('content', ['b' => $b]); // todo предать масив данных о пользователе или его индекс (лучше индекс но мб заебусь)
+$this->layout='void';
+                    return $this->render('content', ['b' => $b]);
                 }
             }
             if ($model->save(false)) {
@@ -115,11 +116,11 @@ class MyController extends Controller
                     $p_name = 'water';
                     $price = 2;
                     break;
-                case 1:
+                case 2:
                     $p_name = 'light';
                     $price = 12;
                     break;
-                case 2:
+                case 1:
                     $p_name = 'gas';
                     $price = 7;
                     break;
@@ -153,15 +154,61 @@ class MyController extends Controller
 
     public function actionContent()
     {
-        $this->layout = "my";
-        if ($_COOKIE['bool']) {
-            return $this->render('content');
-
+        setcookie('paid',true);
+       $this->layout = "void";
+        $cats =  Oplata::find()->all();
+        $i=0;
+        foreach ($cats as $cat) {
+            if ($cat->email === $_COOKIE['email'] ) {
+                $s[$i++]=$cat;
+            }
         }
-        return $this->render('index');
+        $i--;
+        $s=$s[$i];
+        $s = $s['time'];
+
+        $d = new DateTime($s);
+$d->add(new DateInterval('P30D'));
+        $date = new DateTime();
+
+        if ($d->format('Y-m-d')==($date->format('Y-m-d'))){
+                $_COOKIE['paid']=false;
+        }
+
+$_COOKIE['paid']=false;
+
+
+       return  $this->render('content');
+
+
+
+
     }
     public  function actionHistory(){
-        Oplata::find()->all();
+
+//        $cats =  Oplata::find()->all();
+//        $s=[];
+//        $i=0;
+//        foreach ($cats as $cat) {
+//            if ($cat->email === $_COOKIE['email'] ) {
+//             $s[$i++]=$cat;
+//            }
+//        }
+
+        $query = Oplata::find()->where(['email' => $_COOKIE['email']]);
+        $countQuery = clone $query;
+        $pages = new Pagination(['totalCount' => $countQuery->count()]);
+        $pages->setPageSize(10);
+        $models = $query->offset($pages->offset)
+            ->limit($pages->limit)
+            ->all();
+        $this->layout='my';
+        setcookie('i',1);
+
+        return $this->render('history', [
+            'models' => $models,
+            'pages' => $pages,
+        ]);
 
     }
 }

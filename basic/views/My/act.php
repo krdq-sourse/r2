@@ -1,20 +1,20 @@
 <?php
-$input_text = 'hui ' . $_COOKIE['fname'] . ' ' . $_COOKIE['sname'] . ' ' . $_COOKIE['adr'] . ' ' . $num;
+$input_text = 'paied  by ' . $_COOKIE['fname'] . ' ' . $_COOKIE['sname'] . ' ' . $_COOKIE['adr'] . ' ' . $num;
 
-$width = (strlen($input_text) * 9) + 20;
-$height = 300;
+$width = (strlen($input_text) * 9) + 600;
+$height = 600;
 
 $textImage = imagecreatetruecolor($width, $height);
 $color = imagecolorallocate($textImage, 0, 0, 0);
 imagecolortransparent($textImage, $color);
-imagestring($textImage, 5, 10, 5, $input_text, 0xFFFFFF);
+imagestring($textImage, 5, 10, 5, $input_text, 0x6495ED);
 
 
 // create background image layer
-$background = imagecreatefromjpeg('https://i.pinimg.com/originals/43/22/5a/43225aba74ba46ba733f83ec5084e73d.jpg');
+$background = imagecreatefromjpeg('http://localhost/print.jpg');
 
 // Merge background image and text image layers
-imagecopymerge($background, $textImage, 15, 15, 0, 0, $width, $height, 100);
+imagecopymerge($background, $textImage, 15, 15, 0, 0, $width, $height, 50);
 
 
 $output = imagecreatetruecolor($width, $height);

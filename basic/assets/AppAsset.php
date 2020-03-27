@@ -22,10 +22,15 @@ class AppAsset extends AssetBundle
     public $css = [
         'css/site.css',
     ];
-    public $js = [
+    public $js = [ 'js/http_cdn.jsdelivr.net_npm_popper.js@1.16.0_dist_umd_popper.js',
+        'js/http_code.jquery.com_jquery-3.4.1.slim.js',
+        'js/http_stackpath.bootstrapcdn.com_bootstrap_4.4.1_js_bootstrap.js',
+
+
     ];
     public $depends = [
         'yii\web\YiiAsset',
         'yii\bootstrap\BootstrapAsset',
     ];
+
 }
