@@ -40,38 +40,6 @@ public $layout='void';
         ]);
     }
 
-
-//    public function actionView($id)
-//    {
-//        return $this->render('view', [
-//            'model' =>PublicOplata::find()->where(['email' => $_COOKIE['email']]),
-//        ]);
-//    }
-
-
-//    public function actionUpdate($id)
-//    {
-//        $model = $this->findModel($id);
-//
-//        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-//            return $this->redirect(['view', 'id' => $model->email]);
-//        }
-//
-//        return $this->render('update', [
-//            'model' => $model,
-//        ]);
-//    }
-
-
-
-
-    /**
-     * Finds the PublicOplata model based on its primary key value.
-     * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param string $id
-     * @return PublicOplata the loaded model
-     * @throws NotFoundHttpException if the model cannot be found
-     */
     public function actionTst(){
         $this->layout='void';
         return $this->render('_picker');

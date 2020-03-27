@@ -35,7 +35,7 @@ class PublicOplataSearch extends PublicOplata
         // bypass scenarios() implementation in the parent class
         return Model::scenarios();
     }
-    ///ef
+
 
     public function search($params)
     {
