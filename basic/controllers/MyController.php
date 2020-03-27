@@ -2,6 +2,7 @@
 
 
 namespace app\controllers;
+
 use yii\data\Pagination;
 use DateInterval;
 use DateTime;
@@ -41,7 +42,6 @@ class MyController extends Controller
             $cats = Regg::find()->all();
             foreach ($cats as $cat) {
                 if ($cat->email === $e && $cat->pass === $p) {
-//                    Yii::$app->session->setFlash('already','Вы уже зарегистрированы');
                     $b = true;
                     $this->layout = 'my';
                     setcookie('bool', $b);
@@ -49,7 +49,7 @@ class MyController extends Controller
                     setcookie('fname', $cat->firstname);
                     setcookie('sname', $cat->secondname);
                     setcookie('adr', $cat->address);
-$this->layout='void';
+                    $this->layout = 'void';
                     return $this->render('content', ['b' => $b]);
                 }
             }
@@ -130,18 +130,14 @@ $this->layout='void';
             }
 
             $base = new Oplata();
-//            $model->load($her)
-//            $base->load(['email' => $_COOKIE['email'], 'category' => $p_name, 'sum' => $model->num * $price, 'time' => date("Y-m-d H:i:s")
-//            ]);
-            $base->email= $_COOKIE['email'];
-            $base->category=$p_name;
-            $base->sum= $model->num * $price;
-            $base->time=date("Y-m-d H:i:s");
+            $base->email = $_COOKIE['email'];
+            $base->category = $p_name;
+            $base->sum = $model->num * $price;
+            $base->time = date("Y-m-d H:i:s");
             $base->save();
             $cats = Oplata::find()->all();
 
 
-//                    Yii::$app->session->setFlash('already','Вы уже зарегистрированы');
             $b = true;
             return $this->render('act', ['num' => $model->num, 'p' => $p]);
         }
@@ -154,46 +150,38 @@ $this->layout='void';
 
     public function actionContent()
     {
-        setcookie('paid',true);
-       $this->layout = "void";
-        $cats =  Oplata::find()->all();
-        $i=0;
+        setcookie('paid', true);
+        $this->layout = "void";
+        $cats = Oplata::find()->all();
+        $i = 0;
         foreach ($cats as $cat) {
-            if ($cat->email === $_COOKIE['email'] ) {
-                $s[$i++]=$cat;
+            if ($cat->email === $_COOKIE['email']) {
+                $s[$i++] = $cat;
             }
         }
         $i--;
-        $s=$s[$i];
+        $s = $s[$i];
         $s = $s['time'];
 
         $d = new DateTime($s);
-$d->add(new DateInterval('P30D'));
+        $d->add(new DateInterval('P30D'));
         $date = new DateTime();
 
-        if ($d->format('Y-m-d')==($date->format('Y-m-d'))){
-                $_COOKIE['paid']=false;
+        if ($d->format('Y-m-d') == ($date->format('Y-m-d'))) {
+            $_COOKIE['paid'] = false;
         }
 
-$_COOKIE['paid']=false;
+        //   $_COOKIE['paid'] = false;
 
 
-       return  $this->render('content');
-
-
+        return $this->render('content');
 
 
     }
-    public  function actionHistory(){
 
-//        $cats =  Oplata::find()->all();
-//        $s=[];
-//        $i=0;
-//        foreach ($cats as $cat) {
-//            if ($cat->email === $_COOKIE['email'] ) {
-//             $s[$i++]=$cat;
-//            }
-//        }
+    public function actionHistory()
+    {
+
 
         $query = Oplata::find()->where(['email' => $_COOKIE['email']]);
         $countQuery = clone $query;
@@ -202,8 +190,8 @@ $_COOKIE['paid']=false;
         $models = $query->offset($pages->offset)
             ->limit($pages->limit)
             ->all();
-        $this->layout='my';
-        setcookie('i',1);
+        $this->layout = 'my';
+        setcookie('i', 1);
 
         return $this->render('history', [
             'models' => $models,
