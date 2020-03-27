@@ -1,0 +1,6 @@
+{
+    "require": {
+        "kartik-v/yii2-widget-datepicker": "@dev",
+        "kartik-v/yii2-field-range": "*"
+    }
+}
