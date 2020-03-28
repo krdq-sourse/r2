@@ -6,7 +6,7 @@
 <ul class="nav nav-pills">
     <li role="presentation" class="active"><?= Html::a("Главная", ['my/content']) ?></li>
     <li role="presentation" class="action"><?= Html::a("Оплата", ["my/pay"]) ?></li>
-    <li role="presentation" class="active"> <?= Html::a("История", ['test/index']) ?> </li>
+    <li role="presentation" class="action"> <?= Html::a("История", ['test/index']) ?> </li>
 </ul>
 
 <?php
